@@ -1,0 +1,10 @@
+{
+  "timestamp": "2025-06-20T17:05:03.043821",
+  "inputs": [
+    "CF1_10040_xi_plus.txt",
+    "CF2999_10040_xi_plus.txt",
+    "CF2_10040_xi_plus.txt",
+    "GR_10040_xi_plus.txt"
+  ],
+  "script": "gl4_stat_pack_cramerv_fixed_final"
+}
