@@ -1,0 +1,8 @@
+{
+  "name": "tasm-env",
+  "image": "mcr.microsoft.com/devcontainers/python:3.10",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "postCreateCommand": "pip install pylians==0.12 pyccl camb halotools"
+}
