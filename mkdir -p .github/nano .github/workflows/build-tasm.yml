@@ -1,0 +1,28 @@
+name: Build and Export TASM Docker Image
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        run: docker build -t tasm-env:latest .
+
+      - name: Save image to tar.gz
+        run: |
+          mkdir -p export
+          docker save tasm-env:latest | gzip > export/tasm-env.tar.gz
+
+      - name: Upload image artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: tasm-docker-image
+          path: export/tasm-env.tar.gz
